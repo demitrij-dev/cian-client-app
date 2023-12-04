@@ -1,0 +1,69 @@
+.HeaderWrapper{
+  width: 100%;
+  height: 4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.05);
+  .Header{
+    width: 85em;
+    height: 4em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .HeaderLeftElements{
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+      .HeaderLogo{
+        width: 4em;
+        height: 100%;
+        background-image: url("https://static.rustore.ru/apk/1038527/content/ICON/51792378-80bd-4ccc-a98d-b72e20270783.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      .HeaderNav{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 1em;
+        ul{
+          list-style: none;
+          display: flex;
+        }
+        li{
+          margin: 1em;
+          cursor: pointer;
+        }
+      }
+    }
+    .HeaderButtons{
+      width: 15em;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button{
+        border: none;
+        border-radius: 2px;
+        padding: 6px 12px;
+        background-color: rgb(30, 88, 255);
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}

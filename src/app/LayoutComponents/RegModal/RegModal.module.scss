@@ -19,6 +19,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.6em;
+    h1{
+      font: 1.8em "Segoe UI";
+    }
     .CloseButton{
       width: 2em;
       height: 2em;
@@ -38,10 +41,11 @@
     .ModalInputs{
       width: 60%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
-      padding: 0 0.6em;
+      justify-content: start;
+      gap: 1em;
+      padding: 1em 0.6em;
       input{
         width: 15em;
         background: white;
@@ -49,8 +53,28 @@
         border-radius: 0.2em;
         padding: 4px 4px;
       }
+      .PhoneInput{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 12.5em;
+        input{
+          width: 12em;
+        }
+      }
       select{
         width: 15em;
+      }
+      button{
+        margin-top: auto;
+        width: 100%;
+        border: none;
+        border-radius: 0.2em;
+        padding: 12px 10px;
+        background-color: rgb(30, 88, 255);
+        color: white;
+        cursor: pointer;
       }
     }
     .ModalNav{
@@ -68,15 +92,6 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-      }
-      button{
-        width: 100%;
-        border: none;
-        border-radius: 0.2em;
-        padding: 12px 10px;
-        background-color: rgb(30, 88, 255);
-        color: white;
-        cursor: pointer;
       }
     }
   }

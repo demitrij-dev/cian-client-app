@@ -35,8 +35,8 @@ const Header = () => {
                     </nav>
                 </div>
                 <div className={cl.HeaderButtons}>
-                    <button onClick={() => openModal('reg')}>Зарегестрироваться</button>
-                    <button onClick={() => openModal('auth')}>Войти</button>
+                    {/*<button onClick={() => openModal('reg')}>Зарегистрироваться</button>*/}
+                    <button onClick={() => openModal('auth')}>Войти или зарегистрироваться</button>
                 </div>
             </div>
             {isOverlayVisible && <div className={cl.Overlay} onClick={handleOverlayClick}/>}

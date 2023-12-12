@@ -1,0 +1,111 @@
+.findNav{
+  width: 80%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .findOptions{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h1{
+      color: white;
+      text-shadow: gray 0 0 1px;
+      font-size: 2em;
+    }
+    .findSettings{
+      height: 50%;
+      .findButtons{
+        width: 100%;
+        height: 40%;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: row;
+        button{
+          padding: 12px 18px;
+          border: none;
+          border-top-right-radius: 6px;
+          border-top-left-radius: 6px;
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          cursor: pointer;
+        }
+        .buttonActive, button:hover{
+          color: black;
+          background: rgba(222, 222, 222, 1);
+        }
+        .buttonActive{font-weight: 700;}
+      }
+      .findSelects{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow: hidden;
+        .customSelect{
+          width: 100px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          background-color: white;
+          color: black;
+          cursor: pointer;
+          button{
+            border: 1px solid rgba(20, 20, 20, 0.10);
+            border-radius: 4px;
+            padding: 1em 1.25em;
+            background: white;
+          }
+          .customSelectDiv{
+            position: absolute;
+            margin-top: 8em;
+            margin-left: 6em;
+            width: 200px;
+            height: 50px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: dimgrey 4px 3px 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            cursor: pointer;
+          }
+        }
+        .customSelectActive{
+          background-color: darkred;
+          border: 2px solid red;
+        }
+        .customInputs{
+          display: flex;
+        }
+        input{
+          width: 16em;
+          padding: 10px;
+          border: none;
+        }
+        .customInput{
+          width: 35em;
+          border-bottom-right-radius: 10px;
+        }
+      }
+    }
+    .searchButton{
+      align-self: flex-end;
+      width: 110px;
+      height: 40px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      background: #0468ff;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

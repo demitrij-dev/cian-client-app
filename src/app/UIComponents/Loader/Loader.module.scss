@@ -1,0 +1,16 @@
+@keyframes spin {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+.Loader {
+  width: 5em;
+  height: 5em;
+  background: none;
+  border: 5px dashed #0468ff;
+  border-radius: 100%;
+  animation: spin infinite ease-in-out 1s;
+}

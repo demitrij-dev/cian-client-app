@@ -2,10 +2,12 @@
 import cl from "./AuthModal.module.scss"
 import React, {useEffect, useState} from "react";
 import Auth from "@/app/Service/Auth/Auth";
-import {log} from "util";
 import {createPortal} from "react-dom";
 import PopUp from "@/app/UIComponents/PopUp/PopUp";
 import UserAuthStore from "@/app/Service/UserStore/UserAuthStore";
+//@ts-ignore
+import Cookies from 'js-cookie';
+
 interface IClose{
     onClose: () => void
 }
@@ -19,7 +21,8 @@ const AuthModal = ({onClose}: IClose) => {
             .then(r => {
                 setToken(r.token)
                 setUserIsAuth(true)
-                console.log(token, userIsAuth)
+                Cookies.set("token", r.token, {path: "/", expires: 7})
+                onClose()
             })
             .catch(e => {})
     }

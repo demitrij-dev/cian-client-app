@@ -1,0 +1,26 @@
+.SearchPageWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 0;
+  .SearchPage{
+    width: 85em;
+    min-height: 90vh;
+    .SearchPageFilters{
+
+    }
+    .SearchPageContent{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+      .notFoundText{
+        color: #0468ff;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}

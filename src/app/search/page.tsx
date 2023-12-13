@@ -19,13 +19,12 @@ const Page = () => {
             type_of_estate: params.get("type_of_estate")?.trim() || "flat",
             type_of_rent: params.get("type_of_rent")?.trim() || "",
             rooms: params.get("rooms")?.trim()?.split(",") || ["1", "2", "3", "4", "5"],
-            min_price: params.get("min_price")?.trim() || "",
-            max_price: params.get("max_price")?.trim() || "",
+            min_price: params.get("min_price")?.trim() || `0`,
+            max_price: params.get("max_price")?.trim() || `${Number.MAX_SAFE_INTEGER}`,
             name: params.get("name")?.trim() || ""
         }
         const req = async (query: any) => setItems(await ItemsRequest.getFilteredItems(query))
-        req(query).then()
-        setIsLoading(false)
+        req(query).then(() => setIsLoading(false))
     }, [params])
     return (
         <div className={cl.SearchPageWrapper}>

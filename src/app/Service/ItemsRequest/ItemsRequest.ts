@@ -3,7 +3,7 @@ import axios from "axios";
 
 class ItemsRequest{
     async getFilteredItems(filters: IQuery) {
-        const response = await axios.get('http://localhost:8080/data/estate', {
+        const response = await axios.get('https://cian-server-app.onrender.com/data/estate', {
             params: {
                 type_of_estate: filters.type_of_estate || '',
                 type_of_rental: filters.type_of_rent || '',

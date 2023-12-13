@@ -12,11 +12,12 @@ class ItemsRequest{
                 max_price: filters.max_price || '',
                 address: filters.name || '',
             },
+            withCredentials: true,
         })
         return response.data
     }
     async getOneItem(id: string){
-        const response = await axios.get(`http://localhost:8080/data/estate/${id}`)
+        const response = await axios.get(`https://cian-server-app.onrender.com/data/estate/${id}`, {withCredentials: true})
         return response.data
     }
 }

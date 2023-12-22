@@ -5,8 +5,10 @@ import {ICardItem} from "@/app/Service/Interfaces/ICardItem";
 import cl from "./page.module.scss"
 import PhotosCarousel from "@/app/search/[id]/widgets/photosCarousel";
 import Image from "next/image";
+import Loader from "@/app/UIComponents/Loader/Loader";
 
 const Page = () => {
+    const [isLoading, setIsLoading] = useState(true)
     const [item, setItem] = useState<ICardItem>({
         __v: undefined,
         _id: undefined,
@@ -27,7 +29,7 @@ const Page = () => {
         const query = window.location.href.split('/')
         const id = query.pop()
         const req = async (id: any) => setItem(await ItemsRequest.getOneItem(id))
-        req(id).then()
+        req(id).then(() => setIsLoading(false))
     }, [])
     const formatToPrice = (n: number) => {
         return new Intl.NumberFormat('ru-RU',
@@ -66,6 +68,17 @@ const Page = () => {
         navigator.clipboard.writeText(item.contacts).then()
         setWasCopy(true)
         setTimeout(() => setWasCopy(false), 1000)
+    }
+    if(isLoading){
+        return (
+            <div className={cl.cardPageWrapper}>
+                <div className={cl.cardPage} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                    <div>
+                        <Loader/>
+                    </div>
+                </div>
+            </div>
+        )
     }
     return (
         <div className={cl.cardPageWrapper}>

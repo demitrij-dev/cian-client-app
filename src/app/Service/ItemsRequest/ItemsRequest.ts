@@ -3,7 +3,8 @@ import axios from "axios";
 
 class ItemsRequest{
     async getFilteredItems(filters: IQuery) {
-        const response = await axios.get('http://localhost:8080/data/estate', {
+        const response = await axios.get('https://cian-server-app.onrender.com/data/estate', {
+            // http://localhost:8080/data/estate
             params: {
                 type_of_estate: filters.type_of_estate || '',
                 type_of_rental: filters.type_of_rent || '',
@@ -16,7 +17,8 @@ class ItemsRequest{
         return response.data
     }
     async getOneItem(id: string){
-        const response = await axios.get(`http://localhost:8080/data/estate/${id}`)
+        const response = await axios.get(`https://cian-server-app.onrender.com/data/estate/${id}`)
+        // http://localhost:8080/data/estate/${id}
         return response.data
     }
 }

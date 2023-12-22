@@ -5,17 +5,17 @@ import Image from "next/image";
 import {useRouter} from "next/navigation";
 
 const CardItem = ({item}: {item: ICardItem}) => {
-    const {replace} = useRouter()
+    const {push} = useRouter()
     const [activePhoto, setActivePhoto] = useState(0)
     const formatToPrice = (n: number) => {
         return new Intl.NumberFormat('ru-RU',
             {style: 'currency', currency: 'RUB', maximumSignificantDigits: 9}
         ).format(
-            +n,
+            +n.toFixed(2),
         )
     }
     const handleSwitchToCardPage = () => {
-        replace(`http://localhost:3000/search/${item._id}`)
+        push(`search/${item._id}`)
     }
     return (
         <div className={cl.cardItem} onClick={handleSwitchToCardPage}>
@@ -45,7 +45,7 @@ const CardItem = ({item}: {item: ICardItem}) => {
                     <h4>{formatToPrice(+item.price / +item.square)}/м²</h4>
                 </div>
                 <div style={{height: "20%"}}>
-                    <h5>{item.description}</h5>
+                    <h5>{item.description.slice(0, 210)}{item.description.length > 210 && "..."}</h5>
                 </div>
             </div>
             <div className={cl.contacts}>

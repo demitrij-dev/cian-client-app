@@ -35,9 +35,6 @@ const Page = () => {
                 </div>
                 :
                 <div className={cl.SearchPage}>
-                    {/*<div className={cl.SearchPageFilters}>*/}
-                    {/*    <Filters/>*/}
-                    {/*</div>*/}
                     <div className={cl.SearchPageContent}>
                         {items.map((item: ICardItem) => (
                             <CardItem key={item._id} item={item}/>

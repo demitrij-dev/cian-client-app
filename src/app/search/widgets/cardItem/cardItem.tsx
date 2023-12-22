@@ -15,11 +15,7 @@ const CardItem = ({item}: {item: ICardItem}) => {
         )
     }
     const handleSwitchToCardPage = () => {
-<<<<<<< HEAD
         push(`search/${item._id}`)
-=======
-        replace(`https://cian-client-app.vercel.app/search/${item._id}`)
->>>>>>> 1bdb2daf34b08aac64ec849c8c575e3e07cc393d
     }
     return (
         <div className={cl.cardItem} onClick={handleSwitchToCardPage}>

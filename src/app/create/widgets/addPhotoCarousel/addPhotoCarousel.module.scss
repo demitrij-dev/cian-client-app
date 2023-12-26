@@ -1,0 +1,80 @@
+.carouselWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+  border-radius: 10px;
+  .mainImage{
+    position: relative;
+    width: 100%;
+    height: 85%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-width: 100%;
+    max-width: 100%;
+    text-align: center;
+    .text{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3em;
+      height: 2em;
+      margin: 1em;
+      border-radius: 5px;
+      font-weight: 400;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    button{
+      border: none;
+      background: none;
+      position: absolute;
+      top: 50%;
+      cursor: pointer;
+    }
+    .L{
+      left: 1em;
+    }
+    .R{
+      right: 2em;
+    }
+  }
+  .rowImages{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    height: 15%;
+    .rowImage{
+      width: 160px;
+      height: 100%;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .loadPhoto{
+      width: 160px;
+      height: 100px;
+      background-image: url("https://cdn-icons-png.flaticon.com/512/685/685655.png");
+      background-position: center;
+      background-size: calc(100% - 5em);
+      background-repeat: no-repeat;
+      outline: 3px solid #0468ff;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .activeImage{
+      outline: 3px solid #0468ff;
+      border-radius: 5px;
+    }
+  }
+}

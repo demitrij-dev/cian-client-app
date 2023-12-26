@@ -8,6 +8,8 @@ import RegModal from "@/app/LayoutComponents/RegModal/RegModal";
 import Cookies from "js-cookie";
 import UserAuthStore from "@/app/Service/UserStore/UserAuthStore";
 import {useRouter} from "next/navigation";
+import popUp from "@/app/UIComponents/PopUp/PopUp";
+import PopUp from "@/app/UIComponents/PopUp/PopUp";
 
 type ModalType = 'auth' | 'reg' | null;
 const Header = () => {
@@ -40,6 +42,14 @@ const Header = () => {
             setUserIsAuth(true)
         }
     }, [])
+    const handleNavigate = () => {
+        if(!userIsAuth){
+            setModalType("auth")
+            setOverlayVisible(true)
+            return;
+        }
+        push("/create")
+    }
     return (
         <header className={cl.HeaderWrapper}>
             <div className={cl.Header}>
@@ -49,7 +59,7 @@ const Header = () => {
                         <ul>
                             <li onClick={() => handleItemClick('rent')}>Aренда</li>
                             <li onClick={() => handleItemClick('sale')}>Покупка</li>
-                            <li>Продажа</li>
+                            <li onClick={() => handleNavigate()}>Продажа</li>
                         </ul>
                     </nav>
                 </div>

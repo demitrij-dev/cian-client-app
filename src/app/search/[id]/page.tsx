@@ -40,6 +40,11 @@ const Page = () => {
     }
     const [infoStorage, setInfoStorage] = useState([
         {
+            picture: "https://cdn-p.cian.site/imgmobile/icons/offer_card/plan.svg",
+            title: "Кол-во комнат",
+            info: [...item.rooms]
+        },
+        {
             picture: "https://cdn-p.cian.site/imgmobile/icons/offer_card/size.svg",
             title: "Общая площадь",
             info: `${item.square}/м²`,
@@ -54,10 +59,14 @@ const Page = () => {
         setInfoStorage(prevInfoStorage => [
             {
                 ...prevInfoStorage[0],
-                info: `${item.square}/м²`,
+                info: [...item.rooms],
             },
             {
                 ...prevInfoStorage[1],
+                info: `${item.square}/м²`,
+            },
+            {
+                ...prevInfoStorage[2],
                 info: item.flor,
             }
         ]);

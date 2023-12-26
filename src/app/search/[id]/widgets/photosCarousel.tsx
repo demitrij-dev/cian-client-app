@@ -24,7 +24,7 @@ const PhotosCarousel = ({photos, width, height}: {photos: string[], width: numbe
                 {[1, 2, 3, 4, 5, 6].map((index) =>
                     <div
                         key={index}
-                        onClick={() => setActiveImage((currentLine * photosPerPage + index - 1))}
+                        onClick={() => setActiveImage((currentLine * photosPerPage + index - 1) % photos.length)}
                         style={{backgroundImage: `url(${photos[(currentLine * photosPerPage + index - 1) % photos.length]})`}}
                         className={`${cl.rowImage} ${(currentLine * photosPerPage + index - 1) === activeImage && `${cl.activeImage}`}`}
                     />

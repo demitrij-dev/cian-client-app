@@ -3,11 +3,11 @@
 ### Server part build by Javascript, NodeJS, ExpressJS, MongoDB
 
 # Features 
-### Viewing and navigating data from the database
-### Product filtering
+### Viewing and navigating products from the database
+### Products filtering
+### User verification and the ability to add his products to the database
 
 # In development
-### User verification and the ability to add his products to the database
 ### User favorites products and site recommendations based on them
 
 # Preview

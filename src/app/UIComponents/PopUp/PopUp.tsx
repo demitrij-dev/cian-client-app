@@ -4,14 +4,14 @@ import cl from "./PopUp.module.scss"
 import {createPortal} from "react-dom";
 const PopUp = ({text}: {text: string}) => {
     const [isVisible, setIsVisible] = useState<boolean>(true)
-    // useEffect(() => {
-    //     const timeout = setTimeout(() => {
-    //         setIsVisible(false)
-    //     }, 2000)
-    //     return () => {
-    //         clearTimeout(timeout)
-    //     }
-    // }, [])
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setIsVisible(false)
+        }, 2000)
+        return () => {
+            clearTimeout(timeout)
+        }
+    }, [])
     if(isVisible){
         return  (
             createPortal(<div className={cl.Popup}>

@@ -7,6 +7,7 @@ import {INewEstateObject} from "@/app/Service/Interfaces/INewEstateObject";
 import AddPhotoCarousel from "@/app/create/widgets/addPhotoCarousel/addPhotoCarousel";
 import ItemsPost from "@/app/Service/ItemsPost/ItemsPost";
 import {useRouter} from "next/navigation";
+import PopUp from "@/app/UIComponents/PopUp/PopUp";
 
 const Page = () => {
     const {replace} = useRouter()
@@ -51,7 +52,13 @@ const Page = () => {
     }
     const handleAddPhoto = () => {
         const link = prompt("Вставть ссылку на фото") || ""
-        setItem({...item, photos: [...item.photos, link]})
+        if(link.length && isValidURL(link)) setItem({...item, photos: [...item.photos, link]})
+        function isValidURL(url: string) {
+            const urlPattern = new RegExp(
+                /^(ftp|http|https):\/\/[^ "]+$/i
+            );
+            return urlPattern.test(url);
+        }
     }
     return (
         <div className={cl.cardPageWrapper}>

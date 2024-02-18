@@ -4,8 +4,9 @@ import './globals.css'
 import Header from "@/app/LayoutComponents/Header/Header";
 import {Roboto} from "next/font/google"
 
+// Шрифт
 const roboto = Roboto({
-    subsets: ["cyrillic"],
+    subsets: ["cyrillic-ext"],
     weight: ['300', '400', '500', '700'],
 })
 

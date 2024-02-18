@@ -7,8 +7,10 @@ import PhotosCarousel from "@/app/search/[id]/widgets/photosCarousel";
 import Image from "next/image";
 import Loader from "@/app/UIComponents/Loader/Loader";
 
+// Страница товара
 const Page = () => {
     const [isLoading, setIsLoading] = useState(true)
+    // Состояние товара
     const [item, setItem] = useState<ICardItem>({
         __v: undefined,
         _id: undefined,
@@ -25,12 +27,14 @@ const Page = () => {
         type_of_estate: "",
         type_of_rental: ""
     })
+    // Получение id из строки и обращение в сервис
     useEffect(() => {
         const query = window.location.href.split('/')
         const id = query.pop()
         const req = async (id: any) => setItem(await ItemsRequest.getOneItem(id))
         req(id).then(() => setIsLoading(false))
     }, [])
+    // Форматирование числа к виду стоимости
     const formatToPrice = (n: number) => {
         return new Intl.NumberFormat('ru-RU',
             {style: 'currency', currency: 'RUB', maximumSignificantDigits: 9}
@@ -38,6 +42,7 @@ const Page = () => {
             +n,
         )
     }
+    // Состояние дополнительной информации
     const [infoStorage, setInfoStorage] = useState([
         {
             picture: "https://cdn-p.cian.site/imgmobile/icons/offer_card/plan.svg",
@@ -55,6 +60,7 @@ const Page = () => {
             info: item.flor,
         }
     ])
+    // Подгрузка дополнительной информации после запроса
     useEffect(() => {
         setInfoStorage(prevInfoStorage => [
             {
@@ -71,13 +77,17 @@ const Page = () => {
             }
         ]);
     }, [item])
+    // Состояние развернутого описания
     const [fullDescription, setFullDescription] = useState(false)
+    // Состояние копирования
     const [wasCopy, setWasCopy] = useState(false)
+    // Копирование номера из элемента
     const handleCopyClick = () => {
         navigator.clipboard.writeText(item.contacts).then()
         setWasCopy(true)
         setTimeout(() => setWasCopy(false), 1000)
     }
+    // Отображение анимации загрузки
     if(isLoading){
         return (
             <div className={cl.cardPageWrapper}>

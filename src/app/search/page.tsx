@@ -10,11 +10,17 @@ import CardItem from "@/app/search/widgets/cardItem/cardItem";
 import {Metadata} from "next";
 import Loader from "@/app/UIComponents/Loader/Loader";
 
+// Страница отображения товаров
 const Page = () => {
+    // Состояние загрузки
     const [isLoading, setIsLoading] = useState(true)
+    // Состояние коллекции товаров
     const [items, setItems] = useState<ICardItem[]>([])
+    // Получение параметров из адреса
     const params = useSearchParams()
+    // Запрос на сервер
     useEffect(() => {
+        // Формирование запроса
         const query: IQuery = {
             type_of_estate: params.get("type_of_estate")?.trim() || "flat",
             type_of_rent: params.get("type_of_rent")?.trim() || "",
@@ -23,13 +29,14 @@ const Page = () => {
             max_price: params.get("max_price")?.trim() || `${Number.MAX_SAFE_INTEGER}`,
             name: params.get("name")?.trim() || ""
         }
+        // Обращение к сервису
         const req = async (query: any) => setItems(await ItemsRequest.getFilteredItems(query))
         req(query).then(() => setIsLoading(false))
     }, [params])
     return (
         <div className={cl.SearchPageWrapper}>
             {isLoading ?
-                <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                <div style={{display: "flex", alignItems: "center", justifyContent: "center", margin: "1em"}}>
                     <Loader/>
                 </div>
                 :

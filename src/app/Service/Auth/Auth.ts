@@ -1,6 +1,8 @@
 import axios from "axios";
 
+// Сервис аутентификации
 class Auth{
+    // Асинхронный запрос на сервер
     async login(email: string, password: string){
         if(!email) throw "Заполните почту"
         if(!password) throw "Заполните пароль"

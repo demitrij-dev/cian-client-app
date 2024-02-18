@@ -11,11 +11,15 @@ import Cookies from 'js-cookie';
 interface IClose{
     onClose: () => void
 }
+// Модальное окно входа и регистрации
 const AuthModal = ({onClose}: IClose) => {
+    // Состояние аутентификации
     const { token, userIsAuth, setToken, setUserIsAuth } = UserAuthStore();
     const [popUpText, setPopUpText] = useState(null)
+    // Состояние ввода
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
+    // Обработчик клика, отправляет запрос в сервис
     const onSubmit = async () => {
         await Auth.login(email, password)
             .then(r => {
@@ -26,6 +30,7 @@ const AuthModal = ({onClose}: IClose) => {
             })
             .catch(e => {})
     }
+    // Поп-ап с ошибкой
     useEffect(() => {
         if(popUpText){
             const timeout = setTimeout(() => {

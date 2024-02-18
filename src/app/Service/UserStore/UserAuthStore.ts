@@ -6,6 +6,7 @@ interface IUserAuthStore {
     setToken: (newToken: string | null) => void
     setUserIsAuth: (isAuth: boolean) => void
 }
+// Состояние аутентификации
 const UserAuthStore = create<IUserAuthStore>((set) => ({
     token: null,
     userIsAuth: false,

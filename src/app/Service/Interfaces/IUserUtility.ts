@@ -1,3 +1,4 @@
+// Интерфейс данных пользователя при регистрации
 export interface IUserForm{
     email: string
     password: string

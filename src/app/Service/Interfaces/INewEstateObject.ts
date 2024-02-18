@@ -1,3 +1,4 @@
+// Интерфейс товара на этапе добавления пользователем
 export interface INewEstateObject {
     title: string
     price: number

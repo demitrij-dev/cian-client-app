@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import cl from "./addPhotoCarousel.module.scss"
 import Image from "next/image";
+
+// Компонент карусели для прокручивания фото
 const AddPhotoCarousel = (
     {photos, width, height, handleAddPhoto}: {photos: string[], width: number, height: number, handleAddPhoto: () => void}
 ) => {

@@ -2,10 +2,13 @@ import React, {useEffect, useState} from 'react';
 import cl from "./photosCarousel.module.scss"
 import Image from "next/image";
 
+// Компонент карусель для отображения фото
 const PhotosCarousel = ({photos, width, height}: {photos: string[], width: number, height: number}) => {
+    // Состояние активного фото
     const [activeImage, setActiveImage] = useState(0)
     const [currentLine, setCurrentLine] = useState(1)
     const photosPerPage = 6;
+    // Прокрутка
     useEffect(() => {
         setCurrentLine(~~(activeImage / photosPerPage))
     }, [activeImage]);

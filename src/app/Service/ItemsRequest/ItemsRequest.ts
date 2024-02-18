@@ -1,7 +1,9 @@
 import {IQuery} from "@/app/Service/ItemsRequest/IterfaceItem";
 import axios from "axios";
 
+// Сервис получения товаров с сервера
 class ItemsRequest{
+    // Асинхронный метод, формирует запрос из обьекта с фильтрами
     async getFilteredItems(filters: IQuery) {
         const response = await axios.get('https://cian-server-app.onrender.com/data/estate', {
             // http://localhost:8080/data/estate
@@ -16,6 +18,7 @@ class ItemsRequest{
         })
         return response.data
     }
+    // Асинхронный метод, возвращает товар по id
     async getOneItem(id: string){
         const response = await axios.get(`https://cian-server-app.onrender.com/data/estate/${id}`)
         // http://localhost:8080/data/estate/${id}

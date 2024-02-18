@@ -4,9 +4,12 @@ import cl from "./cardItem.module.scss"
 import Image from "next/image";
 import {useRouter} from "next/navigation";
 
+// Компонент товара на странице отображения всех товаров
 const CardItem = ({item}: {item: ICardItem}) => {
     const {push} = useRouter()
+    // Состояние активного фото
     const [activePhoto, setActivePhoto] = useState(0)
+    // Форматирование числа к виду стоимости
     const formatToPrice = (n: number) => {
         return new Intl.NumberFormat('ru-RU',
             {style: 'currency', currency: 'RUB', maximumSignificantDigits: 9}
@@ -14,6 +17,7 @@ const CardItem = ({item}: {item: ICardItem}) => {
             +n.toFixed(2),
         )
     }
+    // Перенаправление на страницу товара
     const handleSwitchToCardPage = () => {
         push(`search/${item._id}`)
     }

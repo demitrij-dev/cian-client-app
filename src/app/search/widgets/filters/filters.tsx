@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Не используется
 const Filters = () => {
     return (
         <div>

@@ -9,10 +9,12 @@ import ItemsPost from "@/app/Service/ItemsPost/ItemsPost";
 import {useRouter} from "next/navigation";
 import PopUp from "@/app/UIComponents/PopUp/PopUp";
 
+// Страница создания товара
 const Page = () => {
     const {replace} = useRouter()
     const [activeCategory, setActiveCategory] = useState("sale")
     const [activeType, setActiveType] = useState("flat")
+    // Состояние нового товара
     const [item, setItem] = useState<INewEstateObject>({
         title: "",
         price: 0,
@@ -26,6 +28,7 @@ const Page = () => {
         rooms: [1],
         flor: 1,
     })
+    // Обьекты для вывода доп. информации
     const [infoStorage, setInfoStorage] = useState([
         {
             picture: "https://cdn-p.cian.site/imgmobile/icons/offer_card/plan.svg",
@@ -46,10 +49,12 @@ const Page = () => {
             input: "flor",
         },
     ]);
+    // Обработчик запроса на сервер
     const handleSendItem = async () => {
         await ItemsPost.addOne(item)
         replace("/")
     }
+    // Загрузка и валидация фото
     const handleAddPhoto = () => {
         const link = prompt("Вставть ссылку на фото") || ""
         if(link.length && isValidURL(link)) setItem({...item, photos: [...item.photos, link]})

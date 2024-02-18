@@ -10,6 +10,7 @@ import {createPortal} from "react-dom";
 interface IClose{
     onClose: () => void
 }
+// Окно регистрации (Не используется)
 const RegModal = ({onClose}: IClose) => {
     const [popUpText, setPopUpText] = useState(null);
     const countries: ICountry[] = [{name: "Россия", code: "7"}, {name: "США", code: "1"}, {name: "Китай", code: "3"}]

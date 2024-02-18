@@ -4,8 +4,10 @@ import cl from "./findOptions.module.scss";
 import {IParameters} from "@/app/Service/Interfaces/filterParametersUtility";
 import {useRouter} from "next/navigation";
 
+// Виджет для запроса по фильтрам
 const FindOptions: FC = () => {
     const {push} = useRouter()
+    // Состояние параметров фильтрации
     const [parameters, setParameters] = useState<IParameters>({
         type_of_estate: "flat",
         type_of_rent: "sale",
@@ -14,6 +16,7 @@ const FindOptions: FC = () => {
         max_price: "",
         name: "",
     })
+    // Изменение поля в параметрах фильтрации
     const handleParametersChange = (field: string, value: string) => {
         if (field === 'type_of_rent') {
             setActiveCategory(parseInt(value, 10));
@@ -25,12 +28,14 @@ const FindOptions: FC = () => {
             setParameters({ ...parameters, [field]: value });
         }
     };
+    // Изменение поля кол-ва комнат в товаре
     const handleChangeRoomsFilter = (room: string) => {
         if(parameters.rooms.includes(room)){
             return setParameters({...parameters, rooms: [...parameters.rooms.filter(r => r !== room)]})
         }
         return setParameters({...parameters, rooms: [...parameters.rooms, room]})
     }
+    // Переадресация на страницу с параметрами фильтрации
     const handleSearch = () => {
         const query = `
             &type_of_estate=${parameters.type_of_estate}
@@ -42,11 +47,13 @@ const FindOptions: FC = () => {
         `
         push(`/search?${query}`)
     }
+    // Состояния дополнительных окон в виджете
     const [customSelectActive, setCustomSelectActive] = useState(false)
     const [customCategoryActive, setCustomCategoryActive] = useState(false)
     const [activeCategory, setActiveCategory] = useState(0)
     const categories = ["Купить", "Снять"]
     const rooms = ["1", "2", "3", "4"]
+    // Форматирование числа к виду стоимости
     const formatToPrice = (n: number) => {
         return new Intl.NumberFormat('ru-RU',
             {style: 'currency', currency: 'RUB', maximumSignificantDigits: 9}

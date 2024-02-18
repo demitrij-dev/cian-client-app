@@ -1,3 +1,4 @@
+// Интерфейс товара
 export interface ICardItem {
     id: string
     address: string

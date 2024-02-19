@@ -81,35 +81,7 @@ const FindOptions: FC = () => {
                         ))}
                     </div>
                     <div className={cl.findSelects}>
-                        {activeCategory === 0 && (
-                            <div
-                                className={cl.customSelect}
-                                onClick={() => {
-                                    setCustomCategoryActive(() => !customCategoryActive)
-                                    setCustomSelectActive(() => false)
-                                }}
-                                style={customCategoryActive ? {color: "#2b87db"} : {}}
-                            >
-                                Строение
-                                {customCategoryActive &&
-                                    <div className={cl.customSelectDiv} onClick={(e) => e.stopPropagation()}>
-                                        <h3
-                                            style={{color: parameters.type_of_estate === "house" ? "#2b6edb" : "black"}}
-                                            onClick={() => handleParametersChange("type_of_estate", "house")}
-                                        >
-                                            Дом
-                                        </h3>
-                                        <h3
-                                            style={{color: parameters.type_of_estate === "flat" ? "#2b6edb" : "black"}}
-                                            onClick={() => handleParametersChange("type_of_estate", "flat")}
-                                        >
-                                            Квартира
-                                        </h3>
-                                    </div>
-                                }
-                            </div>
-                        )}
-                        {activeCategory === 1 && (
+                        {(activeCategory === 0 || activeCategory === 1) && (
                             <div
                                 className={cl.customSelect}
                                 onClick={() => {
